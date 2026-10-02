@@ -1,0 +1,50 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 25px;
+
+  background-color: #24292f;
+  border-bottom: 2px solid #444;
+
+  min-height: 60px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav > a > div {
+  display: flex;
+  align-items: center;
+}
+
+nav img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+nav h3 {
+  margin-left: 15px;
+  color: white;
+  font-size: 22px;
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+}
+
+nav p {
+  margin-left: 40px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+nav h3:hover,
+nav p:hover {
+  text-decoration: underline;
+}
