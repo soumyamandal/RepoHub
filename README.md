@@ -20,7 +20,7 @@ npm start                 # http://localhost:3002
 | Variable | Purpose |
 | --- | --- |
 | `MONGODB_URI` | MongoDB connection string |
-| `DB_NAME` | Database name (default `githubclone`) |
+| `DB_NAME` | Database name (default `VersionControlSystem`) |
 | `JWT_SECRET_KEY` | Long random string used to sign login tokens |
 | `S3_BUCKET`, `AWS_REGION`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` | Only for `push` / `pull` |
 
