@@ -16,6 +16,7 @@ const { commitRepo } = require("./controllers/commit");
 const { pushRepo } = require("./controllers/push");
 const { pullRepo } = require("./controllers/pull");
 const { revertRepo } = require("./controllers/revert");
+const { loginUser } = require("./controllers/cliLogin");
 
 dotenv.config({ path: path.join(__dirname, ".env") });
  
@@ -48,7 +49,7 @@ yargs(hideBin(process.argv))
     commitRepo(argv.message);
   }
 )
-.command("push", "Push commits to S3", {}, pushRepo)
+.command("push", "Push commits to RepoHub", {}, pushRepo)
 .command("pull", "Pull commits from S3", {}, pullRepo)
 .command(
   "revert <commitID>",
@@ -62,6 +63,17 @@ yargs(hideBin(process.argv))
   (argv) => {
     revertRepo(argv.commitID);
   }
+).command(
+  "login",
+  "Log in to RepoHub",
+  (yargs) => {
+    return yargs
+      .option("email", { type: "string", demandOption: true })
+      .option("password", { type: "string", demandOption: true });
+  },
+  (argv) => {
+    loginUser(argv.email, argv.password);
+  }
 )
 .demandCommand(1, "You need at least one command")
 .help()
@@ -71,7 +83,7 @@ function startServer() {
   const app = express();
   const port = process.env.PORT || 3002;
 
-  app.use(express.json());
+  app.use(express.json({ limit: "10mb" }));
 
   const mongoURI = process.env.MONGODB_URI;
 

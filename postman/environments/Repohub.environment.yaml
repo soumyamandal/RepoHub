@@ -1,0 +1,10 @@
+name: Repohub
+values:
+  - key: baseUrl
+    value: ''
+  - key: token
+    value: ''
+  - key: repoId
+    value: ''
+  - key: commitId
+    value: ''

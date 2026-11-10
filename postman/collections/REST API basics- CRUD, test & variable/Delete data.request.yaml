@@ -1,0 +1,20 @@
+$kind: http-request
+description: |-
+  This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).
+
+  A successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code.
+url: "{{base_url}}/info?id=1"
+method: DELETE
+queryParams:
+  id: "1"
+body:
+  type: json
+  content: ""
+scripts:
+  - type: afterResponse
+    code: |
+      pm.test("Successful DELETE request", function () {
+          pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);
+      });
+    language: text/javascript
+order: 4000

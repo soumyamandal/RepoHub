@@ -16,6 +16,8 @@ repoRouter.get("/repo/user/:userID", repoController.fetchRepositoriesForCurrentU
 repoRouter.get("/repo/:id", repoController.fetchRepositoryById);
 repoRouter.get("/repo/:id/commits", commitController.getCommits);
 repoRouter.get("/repo/:id/file", commitController.getFileContent);
+repoRouter.get("/repo/:id/commits/:commitId", commitController.downloadCommit);
+repoRouter.post("/repo/:id/commits/:commitId", authorizeRepoOwner, commitController.uploadCommit);
 repoRouter.put("/repo/update/:id", authorizeRepoOwner, repoController.updateRepositoryById);
 repoRouter.delete("/repo/delete/:id", authorizeRepoOwner, repoController.deleteRepositoryById);
 repoRouter.patch("/repo/toggle/:id", authorizeRepoOwner, repoController.toggleVisibilityById);

@@ -1,0 +1,12 @@
+workspace:
+  id: 96590fdf-3780-486e-8510-f1a7a3c4e26a
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/REST API basics- CRUD, test & variable: 58904931-0c260e90-4f2d-4b05-aca6-72310fb2afff
+  globals:
+    ../postman/globals/workspace.globals.yaml: 0341068f-165b-4729-8719-3dd2692dd256
+  documents:
+    ../postman/documents/WORKSPACE-README.md: 9e1e42c0-f99b-47d0-b81c-e25421fdc613

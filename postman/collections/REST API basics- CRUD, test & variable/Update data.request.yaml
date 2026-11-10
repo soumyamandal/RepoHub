@@ -1,0 +1,23 @@
+$kind: http-request
+description: |-
+  This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).
+
+  A successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code.
+url: "{{base_url}}/info?id=1"
+method: PUT
+queryParams:
+  id: "1"
+body:
+  type: json
+  content: |-
+    {
+    	"name": "Add your name in the body"
+    }
+scripts:
+  - type: afterResponse
+    code: |
+      pm.test("Successful PUT request", function () {
+          pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);
+      });
+    language: text/javascript
+order: 3000
