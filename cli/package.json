@@ -1,0 +1,30 @@
+{
+  "name": "repohub-cli",
+  "version": "0.1.0",
+  "description": "Command-line client for RepoHub: init, add, commit, push, pull and revert",
+  "bin": {
+    "repohub": "bin/repohub.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prepublishOnly": "node scripts/check-server-url.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "yargs": "^17.7.3"
+  },
+  "keywords": [
+    "cli",
+    "version-control",
+    "git",
+    "repohub"
+  ],
+  "license": "MIT"
+}
